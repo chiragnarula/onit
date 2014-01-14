@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Anything</title>
+        <script src="lib/cordova.js"></script>
+        <script src="lib/jquery-1.8.2.min.js"></script>
+        <script src="js/storage/memory-store.js"></script>
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            document.addEventListener("deviceready", loaded, false);
+            function loaded() {
+                //WHEN USER TAPS ADD
+                $("#add").on('click', function(){
+                // Save the tracking data
+                var note1 = $("#note").val();
+              window.localStorage.setItem(note, JSON.stringify(note1));
+              console.log(note1);
+            $("#note").val("pow");
+                });
+
+                 $("#history").on('click', function(){
+                // Count the number of entries in localStorage and display this information to the user
+                tracks_recorded = window.localStorage.length;
+                console.log(tracks_recorded);
+                for(i=0; i<tracks_recorded; i++){
+                    $("#history_tracklist").append("<li>" + window.localStorage.key(i) + "</li>");
+                  }
+
+            });
+
+
+            };
+
+           
+            
+            </script>
+</head>
+<body>
+
+<!-- HOME PAGE -->
+<div data-role="page" id="home">
+  <div data-role="header">
+    <h1>Home</h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-transition="none" data-icon="home">New</a></li>
+        <li><a href="#history" data-transition="none" data-icon="star">Past</a></li>
+      </ul>
+    </div>
+  </div>
+  <div data-role="content">
+   <div data-role="fieldcontain" class="ui-hide-label">
+        <label for="note">What did you realise?</label>
+        <input type="text" name="note" id="note" placeholder="What is it?"/>
+      </div>
+    <button id="add">Add</button>
+  </div>
+</div>  
+
+
+
+<!-- PAGE FOR PAST -->
+<div data-role="page" id="history">
+  <div data-role="header">
+    <h1>Past</h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-transition="none" data-icon="home">New</a></li>
+        <li><a href="#history" data-transition="none" data-icon="star">Past</a></li>
+      </ul>
+    </div>
+  </div>
+  <div data-role="content">
+    <p id="tracks_recorded"></p>
+    <ul data-role="listview" id="history_tracklist">
+        </ul>
+  </div>
+</div>  
+</body>
+</html>
