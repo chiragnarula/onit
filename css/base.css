@@ -1,0 +1,43 @@
+textarea {
+  outline: none;
+  resize: none;
+}
+
+.ui-field-contain{
+	border-bottom-width:0px;
+}
+
+li{
+	margin: 15px;
+	padding: 10px;
+	border-bottom: 1px solid #efefef;
+}
+
+#bla{
+	width: 100%;
+	text-align: right;
+}
+
+#add{
+	margin-right: 20px;
+}
+
+#note{
+	height: 240px !important;
+	color: #000000;
+	font-size: 2em;
+	background-color: white;
+	opacity: .7;
+}
+
+.ui-listview>li{
+	margin: 10px;
+	padding: 5px;
+	font-size: 1.5em;
+	color: #7c7c7c;
+}
+
+#with_bg{
+	background: url(../img/bg2.jpg) no-repeat center top;
+	background-size: 500px;
+}
