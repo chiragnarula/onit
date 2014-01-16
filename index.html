@@ -18,8 +18,7 @@
                 //GETTING THE STORED QUOTES
                 var number_of_notes = window.localStorage.length;
                 console.log(number_of_notes);
-                start_from = number_of_notes--;
-                console.log(start_from);
+                
                 for(i=0; i<number_of_notes; i++){
                     console.log(i);
                     $("#history_tracklist").append("<li>" + window.localStorage.getItem(i) + "</li>");
