@@ -10,25 +10,45 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+         <link rel="stylesheet" href="css/white.min.css" />
+         <link rel="stylesheet" href="css/base.css" />
         <script type="text/javascript" charset="utf-8">
             document.addEventListener("deviceready", loaded, false);
             function loaded() {
-                alert("done");
+                //GETTING THE STORED QUOTES
+                var number_of_notes = window.localStorage.length;
+                console.log(number_of_notes);
+                start_from = number_of_notes--;
+                console.log(start_from);
+                for(i=0; i<number_of_notes; i++){
+                    console.log(i);
+                    $("#history_tracklist").append("<li>" + window.localStorage.getItem(i) + "</li>");
+                    console.log(window.localStorage.getItem(i));
+                  }
+
                 //WHEN USER TAPS ADD
                 $("#add").on('click', function(){
                 // Save the tracking data
                 var note1 = $("#note").val();
-              window.localStorage.setItem(note, JSON.stringify(note1));
-              console.log(note1);
-            $("#note").val("pow");
+               if (note1 != ""){
+                    var no_of_notes = window.localStorage.length;
+                console.log(no_of_notes);
+              
+                }
+          window.localStorage.setItem(no_of_notes, JSON.stringify(note1));
+              $( "#history_tracklist" ).prepend("<li>" + window.localStorage.getItem(number_of_notes) + "</li>").hide().slideDown('slow');
+              
+            $("#note").val("");
                 });
 
                  $("#history").on('click', function(){
                 // Count the number of entries in localStorage and display this information to the user
-                tracks_recorded = window.localStorage.length;
-                console.log(tracks_recorded);
-                for(i=0; i<tracks_recorded; i++){
-                    $("#history_tracklist").append("<li>" + window.localStorage.key(i) + "</li>");
+                var number_of_notes = window.localStorage.length;
+                console.log(number_of_notes);
+                for(i=0; i<number_of_notes; i++){
+                    console.log(i);
+                    $("#history_tracklist").append("<li>" + window.localStorage.getItem(i) + "</li>");
+                    console.log(window.localStorage.getItem(i));
                   }
 
             });
@@ -44,7 +64,7 @@
 
 <!-- HOME PAGE -->
 <div data-role="page" id="home">
-  <div data-role="header">
+  <!-- <div data-role="header">
     <h1>Home</h1>
     <div data-role="navbar">
       <ul>
@@ -52,20 +72,29 @@
         <li><a href="#history" data-transition="none" data-icon="star">Past</a></li>
       </ul>
     </div>
-  </div>
+  </div> -->
+  <div id="with_bg">
   <div data-role="content">
+  
    <div data-role="fieldcontain" class="ui-hide-label">
-        <label for="note">What did you realise?</label>
-        <input type="text" name="note" id="note" placeholder="What is it?"/>
+        <label for="note">Write</label>
+       <textarea id="note" placeholder="What's in your head?"  cols="50" maxlength="110"></textarea>
       </div>
-    <button id="add">Add</button>
+      <div id="bla">
+      <img src="img/save.png" width="35px" id="add">
+      </div>
+</div>
+    <br><br>
+    <ul data-role="listview" id="history_tracklist">
+</ul>
+
   </div>
 </div>  
 
 
 
 <!-- PAGE FOR PAST -->
-<div data-role="page" id="history">
+<!-- <div data-role="page" id="history">
   <div data-role="header">
     <h1>Past</h1>
     <div data-role="navbar">
@@ -80,6 +109,6 @@
     <ul data-role="listview" id="history_tracklist">
         </ul>
   </div>
-</div>  
+</div>  --> 
 </body>
 </html>
