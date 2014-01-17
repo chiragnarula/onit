@@ -27,8 +27,8 @@
 
                 //WHEN USER TAPS ADD
                 $("#add").on('click', function(){
-                // Save the tracking data
                 var note1 = $("#note").val();
+                note1 = note1.replace("\n", "")
                if (note1 != ""){
                     var no_of_notes = window.localStorage.length;
                 console.log(no_of_notes);
