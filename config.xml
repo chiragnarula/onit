@@ -11,5 +11,6 @@
     <access origin="*" />
     <preference name="Fullscreen" value="true" />
     <preference name="WebViewBounce" value="true" />
-    <preference name="Orientation" value="portrait" />
+    <preference name="orientation" value="portrait" />
+    <preference name="KeepRunning" value="true"/>
 </widget>
